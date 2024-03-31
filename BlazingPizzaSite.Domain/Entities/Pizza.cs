@@ -1,10 +1,13 @@
 ﻿using BlazingPizzaSite.Domain.Enums;
+using static System.Net.Mime.MediaTypeNames;
+using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace BlazingPizzaSite.Domain.Entities
 {
     public class Pizza
     {
-        public int PizzaId { get; set; }  // Primary key for EF == Id
+        public Guid PizzaId { get; set; }  // Primary key for EF == Id
 
         public string Name { get; set; } = string.Empty;
 
@@ -26,3 +29,23 @@ namespace BlazingPizzaSite.Domain.Entities
 
     }
 }
+
+/*-ProjectName
+  - Domain
+    - Entities
+    - ValueObjects
+    - Interfaces
+    - Exceptions
+  - Application
+    - Services
+    - DTOs
+    - Interfaces
+    - Validators
+  - Infrastructure
+    - Persistence
+    - Configuration
+    - Mapping
+  - Presentation
+    - Controllers
+    - Views
+*/

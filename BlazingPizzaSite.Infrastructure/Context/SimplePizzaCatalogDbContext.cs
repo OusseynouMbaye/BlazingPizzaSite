@@ -17,13 +17,13 @@ namespace BlazingPizzaSite.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pizza>().HasData(
-                               new Pizza { PizzaId = 1, Name = "Meat Pizza", Description = "Pepperoni, Sausage, Canadian Bacon, Bacon, Mozzarella", Price = 12.50m, Category = Category.Meat },
-                                    new Pizza { PizzaId = 2, Name = "Chicken Pizza", Description = "Grilled Chicken, BBQ Sauce, Red Onion, Cilantro, Mozzarella", Price = 11.50m, Category = Category.Chicken },
-                                    new Pizza { PizzaId = 3, Name = "Vegetarian Pizza", Description = "Mushrooms, Olives, Green Peppers, Onions, Mozzarella", Price = 10.00m, Category = Category.Vegetarian },
-                                    new Pizza { PizzaId = 4, Name = "Vegan Pizza", Description = "Mushrooms, Olives, Green Peppers, Onions, Vegan Cheese", Price = 10.00m, Category = Category.Vegan },
-                                    new Pizza { PizzaId = 5, Name = "Gluten-Free Pizza", Description = "Gluten-Free Crust, Mushrooms, Olives, Green Peppers, Onions, Mozzarella", Price = 14.00m, Category = Category.GlutenFree },
-                                    new Pizza { PizzaId = 6, Name = "Nut-Free Pizza", Description = "Mushrooms, Olives, Green Peppers, Onions, Mozzarella", Price = 10.00m, Category = Category.NutFree }
-                                                                                                                     );
+                new Pizza { PizzaId = Guid.NewGuid(), Name = "Meat Pizza", Description = "Pepperoni, Sausage, Canadian Bacon, Bacon, Mozzarella", Price = 12.50m, Category = Category.Meat },
+                new Pizza { PizzaId = Guid.NewGuid(), Name = "Chicken Pizza", Description = "Grilled Chicken, BBQ Sauce, Red Onion, Cilantro, Mozzarella", Price = 11.50m, Category = Category.Chicken },
+                new Pizza { PizzaId = Guid.NewGuid(), Name = "Vegetarian Pizza", Description = "Mushrooms, Olives, Green Peppers, Onions, Mozzarella", Price = 10.00m, Category = Category.Vegetarian },
+                new Pizza { PizzaId = Guid.NewGuid(), Name = "Vegan Pizza", Description = "Mushrooms, Olives, Green Peppers, Onions, Vegan Cheese", Price = 10.00m, Category = Category.Vegan },
+                new Pizza { PizzaId = Guid.NewGuid(), Name = "Gluten-Free Pizza", Description = "Gluten-Free Crust, Mushrooms, Olives, Green Peppers, Onions, Mozzarella", Price = 14.00m, Category = Category.GlutenFree },
+                new Pizza { PizzaId = Guid.NewGuid(), Name = "Nut-Free Pizza", Description = "Mushrooms, Olives, Green Peppers, Onions, Mozzarella", Price = 10.00m, Category = Category.NutFree }
+            );
         }
     }
 }
