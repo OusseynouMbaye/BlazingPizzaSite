@@ -10,7 +10,7 @@ namespace BlazingPizzaSite.Domain.Enums
     {
         // different categories of pizza
         Meat,
-        chicken,
+        Chicken,
         Vegetarian,
         Vegan,
         GlutenFree,
