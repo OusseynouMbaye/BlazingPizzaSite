@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazingPizzaSite.Client", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizzaSite.Domain", "BlazingPizzaSite.Domain\BlazingPizzaSite.Domain.csproj", "{FB0E0842-0341-456C-9EE3-A235FCE653B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizzaSite.Application", "BlazingPizzaSite.Application\BlazingPizzaSite.Application.csproj", "{A0797BB4-1AB7-492D-825C-658C792F8FB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazingPizzaSite.Infrastructure", "BlazingPizzaSite.Infrastructure\BlazingPizzaSite.Infrastructure.csproj", "{AAD851E7-BDF0-4EE6-B7DA-BC2C006CFD8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{FB0E0842-0341-456C-9EE3-A235FCE653B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB0E0842-0341-456C-9EE3-A235FCE653B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB0E0842-0341-456C-9EE3-A235FCE653B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0797BB4-1AB7-492D-825C-658C792F8FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0797BB4-1AB7-492D-825C-658C792F8FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0797BB4-1AB7-492D-825C-658C792F8FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0797BB4-1AB7-492D-825C-658C792F8FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD851E7-BDF0-4EE6-B7DA-BC2C006CFD8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD851E7-BDF0-4EE6-B7DA-BC2C006CFD8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD851E7-BDF0-4EE6-B7DA-BC2C006CFD8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD851E7-BDF0-4EE6-B7DA-BC2C006CFD8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
