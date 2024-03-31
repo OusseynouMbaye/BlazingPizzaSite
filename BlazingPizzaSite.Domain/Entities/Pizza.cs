@@ -22,6 +22,7 @@ namespace BlazingPizzaSite.Domain.Entities
 
         public Category Category { get; set; }
 
+        public Toppings[] Toppings { get; set; } = new Toppings[0];  // garniture
 
     }
 }
