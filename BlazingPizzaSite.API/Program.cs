@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContextFactory<SimplePizzaCatalogDbContext>(options =>
 {
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("SimplePizzaCatalogConnection"));
 });
 
 builder.Services.AddControllers();
