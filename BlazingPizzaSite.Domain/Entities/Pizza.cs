@@ -1,7 +1,4 @@
 ﻿using BlazingPizzaSite.Domain.Enums;
-using static System.Net.Mime.MediaTypeNames;
-using System.ComponentModel.DataAnnotations;
-using System;
 
 namespace BlazingPizzaSite.Domain.Entities
 {
@@ -13,7 +10,8 @@ namespace BlazingPizzaSite.Domain.Entities
 
         public string? Description { get; set; }
 
-        public string size { get; set; } = string.Empty;
+        //public string size { get; set; } = string.Empty;
+        public Size size { get; set; } 
 
         public decimal Price { get; set; }
 

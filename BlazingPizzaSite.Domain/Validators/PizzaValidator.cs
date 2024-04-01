@@ -11,7 +11,7 @@ namespace BlazingPizzaSite.Domain.Validators
             RuleFor(p => p.Description).MaximumLength(100);
             RuleFor(p => p.Price).GreaterThan(0);
             RuleFor(p => p.DougtType).NotEmpty().MaximumLength(50);
-            RuleFor(p => p.size).NotEmpty().MaximumLength(50);
+            RuleFor(p => p.size).IsInEnum();        
             RuleFor(p => p.Vegetarian).NotNull();
             RuleFor(p => p.Vegan).NotNull();
             RuleFor(p => p.Category).IsInEnum();
