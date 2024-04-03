@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BlazingPizzaSite.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]  // [Route("[controller]")] [Route("api/pizza")]
     public class PizzaController : ControllerBase
     {
         private readonly IPizzaRepository _pizzaRepository;
