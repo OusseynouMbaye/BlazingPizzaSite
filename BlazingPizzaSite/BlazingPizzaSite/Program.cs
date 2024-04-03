@@ -1,5 +1,8 @@
-using BlazingPizzaSite.Client.Pages;
+using BlazingPizzaSite.Application.Interfaces;
 using BlazingPizzaSite.Components;
+using BlazingPizzaSite.Infrastructure.Context;
+using BlazingPizzaSite.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +10,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+
+builder.Services.AddDbContextFactory<SimplePizzaCatalogDbContext>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("SimplePizzaCatalogConnection"));
+});
+
+builder.Services.AddScoped<IPizzaRepository, PizzaRepository>();
+
+/*builder.Services.AddScoped(sp => new HttpClient
+{ BaseAddress = new Uri(builder.Configuration["BaseUrl"]) 
+});*/
+
+
 
 var app = builder.Build();
 

@@ -7,12 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContextFactory<SimplePizzaCatalogDbContext>(options =>
+/*builder.Services.AddDbContextFactory<SimplePizzaCatalogDbContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("SimplePizzaCatalogConnection"));
 });
 
-builder.Services.AddScoped<IPizzaRepository, PizzaRepository>();
+builder.Services.AddScoped<IPizzaRepository, PizzaRepository>();*/
 
 
 builder.Services.AddControllers();
@@ -33,6 +33,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+if (app.Environment.IsDevelopment())
+{
+   app.UseWebAssemblyDebugging();
+}
+
+//app.UseBlazorFrameworkFiles();
+
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
@@ -42,5 +49,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllers();
+
+//app.MapFallbackToFile("index.html");
 
 app.Run();
