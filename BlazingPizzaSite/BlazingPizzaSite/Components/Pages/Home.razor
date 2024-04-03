@@ -1,9 +1,65 @@
 ﻿@page "/"
 
-<h1>Welcome to Blazing Pizza</h1>
+@inject IPizzaRepository PizzaRepository
 
-<p>@welcomeMessage</p>
+<PageTitle>Blazing Pizza</PageTitle>
+
+<div class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+        <h1 class="display-4">Welcome to Blazing Pizza!</h1>
+        <p class="lead">@welcomeMessage</p>
+    </div>
+</div>
+
+@if (pizzas == null)
+{
+    <p>We're finding out what pizzas are available today...</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Pizza Name</th>
+                <th>Description</th>
+                <th>Vegetarian?</th>
+                <th>Vegan?</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pizza in pizzas)
+            {
+                <tr>
+                    <td>@pizza.Name</td>
+                    <td>@pizza.Description</td>
+                    <td>@pizza.Vegetarian</td>
+                    <td>@pizza.Vegan</td>
+                    <td>@pizza.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
 @code {
     private string welcomeMessage = "However you like your pizzas, we can deliver them fast!";
+
+    private IEnumerable<Pizza>? pizzas;
+    /*
+    private async Task LoadPizzas()
+    {
+        var pizzas = await PizzaRepository.GetPizzas();
+        var pizzaCount = pizzas.Count();
+        welcomeMessage = $"We have {pizzaCount} different pizzas available!";
+    }*/
+
+    protected override async Task OnInitializedAsync()
+    {
+        pizzas = await PizzaRepository.GetAllPizzasAsync();
+        var pizzaCount = pizzas.Count();
+        welcomeMessage = $"We have {pizzaCount} different pizzas available!";
+    }
 }
+
+
