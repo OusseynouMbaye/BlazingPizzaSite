@@ -13,9 +13,15 @@ namespace BlazingPizzaSite.Infrastructure.Repositories
             _context = factory.CreateDbContext();
         }
 
+
         public async Task<IEnumerable<Pizza>> GetAllPizzasAsync()
         {
             return await _context.Pizzas.ToListAsync();
         }
+
+       /* public async Task<List<Pizza>> GetAllPizzaAsync()
+        {
+            return await _context.Pizzas.ToListAsync();
+        }*/
     }
 }
