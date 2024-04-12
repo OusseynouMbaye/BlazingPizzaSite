@@ -1,6 +1,7 @@
 ﻿@page "/"
 
-@inject IPizzaRepository PizzaRepository
+@inject IPizzaRepository PizzaRepository // get list of pizzas from the repository
+@attribute [StreamRendering]
 
 <PageTitle>Blazing Pizza</PageTitle>
 
@@ -11,36 +12,29 @@
     </div>
 </div>
 
-@if (pizzas == null)
-{
-    <p>We're finding out what pizzas are available today...</p>
-}
-else
-{
-    <table>
-        <thead>
-            <tr>
-                <th>Pizza Name</th>
-                <th>Description</th>
-                <th>Vegetarian?</th>
-                <th>Vegan?</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        @if (pizzas is null)
+        {
+            <div class="pizza-item">
+                We're finding out what pizzas are available today...
+            </div>
+        }
+        else if (pizzas.Any())
+        {
             @foreach (var pizza in pizzas)
             {
-                <tr>
-                    <td>@pizza.Name</td>
-                    <td>@pizza.Description</td>
-                    <td>@pizza.Vegetarian</td>
-                    <td>@pizza.Vegan</td>
-                    <td>@pizza.Price</td>
-                </tr>
+                <div class="pizza-item">
+                   <PizzaCard Pizza="pizza" />
+
+                </div>
             }
-        </tbody>
-    </table>
-}
+        }
+
+    </div>
+</div>
+
 
 @code {
     private string welcomeMessage = "However you like your pizzas, we can deliver them fast!";
@@ -49,13 +43,18 @@ else
     /*
     private async Task LoadPizzas()
     {
-        var pizzas = await PizzaRepository.GetPizzas();
-        var pizzaCount = pizzas.Count();
-        welcomeMessage = $"We have {pizzaCount} different pizzas available!";
+    var pizzas = await PizzaRepository.GetPizzas();
+    var pizzaCount = pizzas.Count();
+    welcomeMessage = $"We have {pizzaCount} different pizzas available!";
     }*/
 
+    /*
+    * The OnInitializedAsync method is called when the component is initialized.
+    * This is a good place to load data from a repository or perform other initialization tasks.
+    */
     protected override async Task OnInitializedAsync()
     {
+        await Task.Delay(3000); // Simulate a network delay
         pizzas = await PizzaRepository.GetAllPizzasAsync();
         var pizzaCount = pizzas.Count();
         welcomeMessage = $"We have {pizzaCount} different pizzas available!";
