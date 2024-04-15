@@ -5,3 +5,8 @@
     border-radius: 0.5rem;
 }
 
+.background-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 55%;
+}

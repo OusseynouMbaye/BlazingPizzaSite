@@ -17,6 +17,8 @@ namespace BlazingPizzaSite.Domain.Entities
 
         public string DougtType { get; set; } = string.Empty;   // thin, thick, stuffed crust == pâte fine, épaisse, croûte farcie
 
+        public string ImageUrl { get; set; }
+
         public bool Vegetarian { get; set; }
 
         public bool Vegan { get; set; }

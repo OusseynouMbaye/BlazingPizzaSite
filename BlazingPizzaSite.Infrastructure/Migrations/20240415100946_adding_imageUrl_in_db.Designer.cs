@@ -3,6 +3,7 @@ using System;
 using BlazingPizzaSite.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazingPizzaSite.Infrastructure.Migrations
 {
     [DbContext(typeof(SimplePizzaCatalogDbContext))]
-    partial class SimplePizzaCatalogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240415100946_adding_imageUrl_in_db")]
+    partial class adding_imageUrl_in_db
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
@@ -68,7 +71,7 @@ namespace BlazingPizzaSite.Infrastructure.Migrations
                             Category = 0,
                             Description = "Pepperoni, Sausage, Canadian Bacon, Bacon, Mozzarella",
                             DougtType = "",
-                            ImageUrl = "img/pizzas/bacon.jpg",
+                            ImageUrl = "img/pizzas/beacon.jpg",
                             Name = "Meat Pizza",
                             Price = 12.50m,
                             Toppings = "[]",

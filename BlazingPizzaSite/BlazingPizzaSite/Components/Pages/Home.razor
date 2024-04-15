@@ -13,8 +13,8 @@
 </div>
 
 
-<div class="row justify-content-center">
-    <div class="col-md-6">
+<div class="row justify-content-center ">
+    <div class="row col-md-6 justify-content-center ">
         @if (pizzas is null)
         {
             <div class="pizza-item">
@@ -25,7 +25,7 @@
         {
             @foreach (var pizza in pizzas)
             {
-                <div class="pizza-item">
+                <div class="pizza-item background-img" style="background-image: url('@pizza.ImageUrl ')">
                    <PizzaCard Pizza="pizza" />
 
                 </div>
