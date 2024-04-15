@@ -11,6 +11,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services.AddRazorPages();
 
 builder.Services.AddDbContextFactory<SimplePizzaCatalogDbContext>(options =>
 {
@@ -43,6 +44,8 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+
+app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
