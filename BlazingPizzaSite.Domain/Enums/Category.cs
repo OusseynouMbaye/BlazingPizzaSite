@@ -9,7 +9,7 @@ namespace BlazingPizzaSite.Domain.Enums
     public enum Category
     {
         // different categories of pizza
-        Meat,
+        Meat=1,
         Chicken,
         Vegetarian,
         Vegan,

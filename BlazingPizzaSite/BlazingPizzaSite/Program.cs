@@ -17,6 +17,7 @@ builder.Services.AddDbContextFactory<SimplePizzaCatalogDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SimplePizzaCatalogConnection"));
 });
 
+
 builder.Services.AddScoped<IPizzaRepository, PizzaRepository>();
 
 /*builder.Services.AddScoped(sp => new HttpClient
