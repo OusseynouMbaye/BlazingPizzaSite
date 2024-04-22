@@ -3,6 +3,7 @@ using BlazingPizzaSite.Components;
 using BlazingPizzaSite.Infrastructure.Context;
 using BlazingPizzaSite.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,13 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug()
+    .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Information)
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .WriteTo.File("logs/pizzaSite.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
 
 builder.Services.AddDbContextFactory<SimplePizzaCatalogDbContext>(options =>
 {
@@ -24,7 +32,7 @@ builder.Services.AddScoped<IPizzaRepository, PizzaRepository>();
 { BaseAddress = new Uri(builder.Configuration["BaseUrl"]) 
 });*/
 
-
+builder.Host.UseSerilog();
 
 var app = builder.Build();
 
