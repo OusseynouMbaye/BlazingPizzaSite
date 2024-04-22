@@ -7,16 +7,17 @@ namespace BlazingPizzaSite.Domain.Entities
     {
         public Guid PizzaId { get; set; }  // Primary key for EF == Id
 
-        [Required]
+        [Required(ErrorMessage ="Please provide a title")]
         [StringLength(100)]
         public string Name { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage = "Plese provide a description")]
         [StringLength(250)]
         public string? Description { get; set; }
 
-        public DateTime? CreatedDate { get; set; } 
+        public DateTime? CreatedDate { get; set; }
 
+        [EnumDataType(typeof(Category),ErrorMessage ="Please select a category")]
         public Category Category { get; set; }
         /*
         
