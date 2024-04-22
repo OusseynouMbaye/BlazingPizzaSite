@@ -8,7 +8,7 @@
 
 <div class="row justify-content-center">
     <div class="col-6">
-        <EditForm method="post" FormName="AddPizzaForm" OnValidSubmit="AddPizza" Model="Pizza" autocomplete="off">
+        <EditForm Enhance="true" method="post" FormName="AddPizzaForm" OnValidSubmit="AddPizza" Model="Pizza" autocomplete="off">
             <h3>Add New Pizza</h3>
             <div class="mb-3">
                 <label for="Name" class="form-label">Name</label>
@@ -17,6 +17,11 @@
             <div class="mb-3">
                 <label for="Description" class="form-label">Description</label>
                 <InputText id="Description" class="form-control shadow-none" @bind-Value="Pizza.Description" />
+            </div> 
+            
+            <div class="mb-3">
+                <label for="DateCreation" class="form-label">Created Date</label>
+                <InputDate id="DateCreation" class="form-control shadow-none" @bind-Value="Pizza.CreatedDate" />
             </div>
             <div class="mb-3">
                 <label for="Category" class="form-label">Category</label>
