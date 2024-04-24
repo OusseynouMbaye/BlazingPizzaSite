@@ -30,5 +30,19 @@ namespace BlazingPizzaSite.Infrastructure.Repositories
             _context.Pizzas.Add(pizza);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<Pizza?> GetPizzaByIdAsync(Guid id)
+        {
+            var pizza = await _context.Pizzas.FirstOrDefaultAsync(p => p.PizzaId == id);
+            return pizza;
+        }
+
+        public async Task UpdatePizzaAsync(Pizza pizza)
+        {
+            _context.Entry(pizza).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+
+       
     }
 }

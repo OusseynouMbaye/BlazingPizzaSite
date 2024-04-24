@@ -1,0 +1,5 @@
+﻿pizza-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: inherit;
+}

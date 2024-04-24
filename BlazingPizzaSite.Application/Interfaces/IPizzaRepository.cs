@@ -11,6 +11,10 @@ namespace BlazingPizzaSite.Application.Interfaces
 
         Task AddPizzaAsync(Pizza pizza);
 
+        Task<Pizza?> GetPizzaByIdAsync(Guid id);
+
+        Task UpdatePizzaAsync(Pizza pizza);
+
         //Task<List<Pizza>> GetAllPizzaAsync();
         //Task AddPizzaAsync(Pizza pizza);
 
