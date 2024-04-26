@@ -1,4 +1,4 @@
-﻿@page "/AddNew"
+﻿@page "/add-new"
 @inject IPizzaRepository PizzaRepository
 @inject NavigationManager NavigationManager
 
@@ -78,6 +78,7 @@
 
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary shadow-none">Add Pizza</button>
+                <a href="/"  class="btn btn-secondary shadow-none ms-3" >back to list</a>
             </div>
 
             <DataAnnotationsValidator />
@@ -94,6 +95,11 @@
     private async Task AddPizza()
     {
         await PizzaRepository.AddPizzaAsync(Pizza);
+        NavigationManager.NavigateTo("/");
+    }
+
+    private void BackToList()
+    {
         NavigationManager.NavigateTo("/");
     }
 

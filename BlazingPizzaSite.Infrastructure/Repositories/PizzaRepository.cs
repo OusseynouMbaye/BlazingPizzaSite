@@ -17,7 +17,7 @@ namespace BlazingPizzaSite.Infrastructure.Repositories
 
         public async Task<IEnumerable<Pizza>> GetAllPizzasAsync()
         {
-            return await _context.Pizzas.ToListAsync();
+            return await _context.Pizzas.OrderByDescending(p=>p.CreatedDate).ToListAsync();
         }
 
         /* public async Task<List<Pizza>> GetAllPizzaAsync()
