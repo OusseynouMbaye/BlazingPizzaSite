@@ -8,98 +8,15 @@
 
 <div class="row justify-content-center">
     <div class="col-6">
-        <EditForm Enhance="true" method="post" FormName="AddPizzaForm" OnValidSubmit="AddPizza" Model="Pizza" autocomplete="off">
-            <h3>Add New Pizza</h3>
-            <div class="mb-3">
-                <label for="Name" class="form-label">Name</label>
-                <InputText id="Name" class="form-control shadow-none" @bind-Value="Pizza.Name" />
-            </div>
-            <div class="mb-3">
-                <label for="Description" class="form-label">Description</label>
-                <InputText id="Description" class="form-control shadow-none" @bind-Value="Pizza.Description" />
-            </div> 
-            
-            <div class="mb-3">
-                <label for="DateCreation" class="form-label">Created Date</label>
-                <InputDate id="DateCreation" class="form-control shadow-none" @bind-Value="Pizza.CreatedDate" />
-            </div>
-            <div class="mb-3">
-                <label for="Category" class="form-label">Category</label>
-                <InputSelect id="Category" @bind-Value=Pizza.Category class="form-control shadow-none">
-                    <option value="0">Selec Category</option>
-                    @foreach (var category in Enum.GetValues(typeof(Category)))
-                    {
-                        <option value="@category">@category.ToString()</option>
-                    }
-                </InputSelect>
-            </div>
-            @* <div class="mb-3">
-                <label for="Price" class="form-label">Price</label>
-                <InputNumber id="Price" class="form-control shadow-none" @bind-Value="Pizza.Price" />
-            </div>
-            <div class="mb-3">
-                <label for="Vegan" class="form-label">Vegan</label>
-                <InputSelect id="Vegan" @bind-Value=Pizza.Vegan class="form-control shadow-none">
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                </InputSelect>
-            </div>
-            <div class="mb-3">
-                <label for="Size" class="form-label">Size</label>
-                <InputSelect id="Size" @bind-Value=Pizza.size class="form-control shadow-none">
-                    <option value="0">Select a size</option>
-                    @foreach (var size in Enum.GetValues(typeof(Size)))
-                    {
-                        <option value="@size">@size.ToString()</option>
-                    }   
-                </InputSelect>
-            </div>
-           
-            <div class="mb-3">
-                <label for="Toppings" class="form-label">Toppings</label>
-                <InputSelect id="Toppings" @bind-Value=Pizza.Toppings class="form-control shadow-none">
-                    <option value="0">Selec Toppings</option>
-                    @foreach (var toppings in Enum.GetValues(typeof(Toppings)))
-                    {
-                        <option value="@toppings">@toppings.ToString()</option>
-                    }
-                </InputSelect>
-            </div>
-            <div class="mb-3">
-                <label for="DougtType" class="form-label">Dougt Type</label>
-                <InputSelect id="DougtType" @bind-Value=Pizza.DougtType class="form-control shadow-none">
-                    <option value="0">Selec Dough Type</option>
-                    @foreach (var doughType in Enum.GetValues(typeof(DougtType)))
-                    {
-                        <option value="@doughType">@doughType.ToString()</option>
-                    }
-                </InputSelect>
-            </div> *@
-
-            <div class="mb-3">
-                <button type="submit" class="btn btn-primary shadow-none">Add Pizza</button>
-                <a href="/"  class="btn btn-secondary shadow-none ms-3" >back to list</a>
-            </div>
-
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-        </EditForm>
-
+        
+        <PizzaForm IsEditMode="false" OnValidPizzaSubmit="AddPizza" />
 
     </div>
 </div>
 @code {
-    [SupplyParameterFromForm]
-    public Pizza Pizza { get; set; } = new();
-
-    private async Task AddPizza()
+    private async Task AddPizza(Pizza pizza)
     {
-        await PizzaRepository.AddPizzaAsync(Pizza);
-        NavigationManager.NavigateTo("/");
-    }
-
-    private void BackToList()
-    {
+        await PizzaRepository.AddPizzaAsync(pizza);
         NavigationManager.NavigateTo("/");
     }
 
