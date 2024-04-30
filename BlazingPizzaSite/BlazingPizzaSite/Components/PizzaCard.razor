@@ -1,20 +1,50 @@
-﻿@using System.Globalization
-<div class="pizza-card">
+﻿@inject IPizzaRepository Repository
+@inject NavigationManager Navigation
+
+@using System.Globalization
+<div class="pizza-card flex-wrap flex-md-nowrap ">
     <div class="pizza-card-body">
         <h5>@Pizza.Name</h5>
         @* <p> @Pizza.Price.ToString("C")</p> *@
         <p>@Pizza.Description</p>
         <p>@Pizza.CreatedDate</p>
     </div>
-    <div class="actions">
+    <div class="actions d-flex align-items-end">
         <a href="@($"/edit/{Pizza.PizzaId}")" class="btn btn-warning shadow-none">
             Edit
         </a>
+        <button @onclick="OpenConfirmDialog" class="btn btn-danger shadow-none ms-3">
+            Delete
+        </button>
+
     </div>
 </div>
 
+<ConfirmDialog Show="showConfirmDialog" OnCancel="CancelDelete" OnOk="DeletePizza" > 
+    <h3>Are you sure you want to delete this Pizza @Pizza.PizzaId ?</h3>
+</ConfirmDialog>
 
 @code {
+
+    private bool showConfirmDialog;
+
     [Parameter]
-    public required Pizza Pizza { get; set;}
+    public required Pizza Pizza { get; set; }
+
+    private void OpenConfirmDialog()
+    {
+        showConfirmDialog = true;
+    }
+
+    private void CancelDelete()
+    {
+        showConfirmDialog = false;
+    }
+
+    private async Task DeletePizza()
+    {
+        await Repository.DeletePizzaByIdAsync(Pizza.PizzaId);
+        showConfirmDialog = false;
+        Navigation.NavigateTo("/");
+    }
 }

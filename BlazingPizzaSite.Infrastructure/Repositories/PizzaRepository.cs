@@ -43,6 +43,15 @@ namespace BlazingPizzaSite.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-       
+        public async Task DeletePizzaByIdAsync(Guid id)
+        {
+            var pizza = await GetPizzaByIdAsync(id); 
+
+            if (pizza is not null)
+            {
+                _context.Pizzas.Remove(pizza);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

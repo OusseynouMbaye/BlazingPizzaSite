@@ -1,7 +1,6 @@
 ﻿.pizza-item {
     padding: 1.5rem;
-    margin-bottom: 1rem;
+    margin: 1rem;/*margin-bottom: 1rem;*/
     box-shadow: 0 0 0.5rem rgba(0,0,0, 0.3);
     border-radius: 0.5rem;
 }
-

@@ -3,6 +3,7 @@
 @inject IPizzaRepository PizzaRepository // get list of pizzas from the repository
 @attribute [StreamRendering]
 
+
 <PageTitle>Blazing Pizza</PageTitle>
 
 <div class="jumbotron jumbotron-fluid text-center">
@@ -16,7 +17,7 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
 
-        <a href="/add-new" class="btn btn-primary shadow-none mb-3">
+        <a href="/add-new" class="btn btn-primary shadow-none mb-3 ms-3">
             Add New
         </a>
 
@@ -31,7 +32,7 @@
             @foreach (var pizza in pizzas)
             {
                 <div class="pizza-item">
-                    <PizzaCard Pizza="pizza" />
+                    <PizzaCard @rendermode="InteractiveServer" Pizza="pizza" />
                 </div>
             }
         }
